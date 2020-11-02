@@ -15,6 +15,6 @@ trigger body:
 @bp.route('/new_date_created', methods=['POST', 'GET'])
 def new_date_created():
     data = request.get_json() or {}
-    limit = int(data['limit']) or 50
+    limit = data['limit'] if 'limit' in data else 50
     ingrediants = [("date", (datetime.now()-timedelta(minutes=x)).isoformat()) for x in range(limit)]
     return jsonify(create_triggers_response(ingrediants))

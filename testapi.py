@@ -11,5 +11,5 @@ def index():
 @app.route('/ifttt/v1/status', methods=['GET'])
 def status():
     if ("IFTTT-Service-Key" not in request.headers or request.headers["IFTTT-Service-Key"] != service_key):
-        return "", 503        
+        return "", 401        
     return "", 200

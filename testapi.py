@@ -20,7 +20,9 @@ def status():
 
 @app.route('/ifttt/v1/test/setup', methods=['GET', 'POST'])
 def setup():
-    
+    if ("IFTTT-Service-Key" not in request.headers or request.headers["IFTTT-Service-Key"] != service_key):
+        return "", 401
+           
     return jsonify({
         "data": {
             "samples": {

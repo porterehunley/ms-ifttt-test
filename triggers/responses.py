@@ -14,3 +14,8 @@ def create_triggers_response(ingrediants):
             })
     
     return reponse
+
+def create_error_response(errors):
+    return {
+        "errors": errors
+    }

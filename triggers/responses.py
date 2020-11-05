@@ -17,5 +17,5 @@ def create_triggers_response(ingrediants):
 
 def create_error_response(errors):
     return {
-        "errors": errors
+        "errors": [{"message": err} for err in errors]
     }

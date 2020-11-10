@@ -32,6 +32,11 @@ def setup():
             "samples": {
                 "triggers": {
                     "new_date_created": {}
+                },
+                "actions": {
+                    "create_new_name": {
+                        "name": "porter"
+                    }
                 }
             },
         }

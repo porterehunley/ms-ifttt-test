@@ -9,7 +9,7 @@ trigger body:
   recomends some relationship is stored on our part.
 + triggerFields(Map) - see docs
 + limit(int) - limit number of 'ingrediants' returned 
-+ user - info on user
++ user - info on user -> not used in the trigger's opp, don't think they need it
 + ifttt_source - info on applet
 '''
 service_key = "3aKjTXxu2zoRqxr1rZ5nkniI56JWOTo51gwgCu7hZfbxmkiVIJEt4e5q_E3lxEOL"
@@ -26,4 +26,3 @@ def new_date_created():
 	
 	except Exception as e:
 		return create_error_response([e]), 500
-

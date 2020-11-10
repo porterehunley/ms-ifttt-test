@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 '''
 actionFields
 '''
-@bp.route('/create_new_name')
+@bp.route('/create_new_name', methods=['POST'])
 def create_new_date():
     data = request.get_json() or {}
     actionFields = data['actionFields']

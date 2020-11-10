@@ -6,12 +6,12 @@ from datetime import datetime, timedelta
 '''
 actionFields
 '''
-@bp.route('/create_new_date')
+@bp.route('/create_new_name')
 def create_new_date():
     data = request.get_json() or {}
     actionFields = data['actionFields']
-    with open('user_dates.txt', 'a') as f:
-        f.write(actionFields['date'])
+    with open('user_names.txt', 'a') as f:
+        f.write(actionFields['name'])
     f.close()
 
     return jsonify(create_action_response()), 200

@@ -4,11 +4,9 @@ from flask import request, jsonify
 app = Flask(__name__)
 
 from triggers import bp as trigger_bp
-from services import bp as service_bp
 from actions import bp as action_bp
 
 app.register_blueprint(trigger_bp, url_prefix='/ifttt/v1/triggers')
-app.register_blueprint(service_bp, url_prefix='/services')
 app.register_blueprint(action_bp, url_prefix='/ifttt/v1/actions')
 service_key = "3aKjTXxu2zoRqxr1rZ5nkniI56JWOTo51gwgCu7hZfbxmkiVIJEt4e5q_E3lxEOL"
 
@@ -39,6 +37,15 @@ def setup():
                     }
                 }
             },
+        }
+    })
+
+@app.route('/ifttt/v1/user/info')
+def create_user_info():
+    return jsonify({
+        "data": {
+            "name": "Walter White",
+            "id": "heisenberg"
         }
     })
 

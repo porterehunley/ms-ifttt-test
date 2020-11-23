@@ -1,5 +1,5 @@
 from flask import Flask 
-from flask import request, jsonify
+from flask import request, jsonify, redirect, make_response
 
 app = Flask(__name__)
 
@@ -47,5 +47,17 @@ def create_user_info():
             "name": "Walter White",
             "id": "heisenberg"
         }
+    })
+
+@app.route('/oauth2/authorize')
+def authorize_request():
+    state = request.args.get('state')
+    return redirect("https://ifttt.com/channels/hello_world_8d37317863/authorize?code=1234&state="+state)
+
+@app.route('/oauth2/token')
+def send_token():
+    return jsonify({
+        'token_type': 'bearer',
+        'access_token': '1234'
     })
 

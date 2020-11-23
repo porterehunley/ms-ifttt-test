@@ -26,7 +26,7 @@ def setup():
         return "", 401
            
     return jsonify({
-        "accessToken": "1234"
+        "accessToken": "1234",
         "data": {
             "samples": {
                 "triggers": {
